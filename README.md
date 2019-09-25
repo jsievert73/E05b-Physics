@@ -1,11 +1,10 @@
 # E05b-Physics
 Exploring 2D physics and collisions.
 
-In *main1.py*, you will need to apply gravity to the balls on the screen. To do so, you will need to find an appropriate gravity constant and assign GRAVITY to that number (line 17). Because of the way the Y axis works in Python Arcade, GRAVITY will need to be a negative number for the balls to fall.
+In *main1.py*, we spawn 20 balls on the screen in random positions. Then we will apply gravity to them, finally having them rest at the bottom of the scene.
 
-You will then need to accelerate the balls according to the GRAVITY constant. You can call b.accelerate(x,y) on line 67. In the case of applying gravity, x will be 0 and y will be GRAVITY.
+In *main2.py*, we spawn 20 balls again and apply gravity to them. Now we have made them able to bounce, by simply flipping it's dy components when it collides with the ground. The application of friction will make sure they don't bounce infintely.
 
-*main2.py*, is a little more complicated. You will need to apply all the lessons you learned in main1.py, but now we want the balls to bounce off the walls. First apply the GRAVITY constant from main1.py and accelerate the balls. Then, lines 39, 45, 51, and 57 will ask you to bounce (reverse the velocity) of the ball when it hits a wall. Think about what we discussed in class. I am applying some friction so they don't bounce forever.
-
-*main3.py* implements the worst, most-naive version of collision physics using the built-in sprite collision detection. Assuming all the animal heads have the same mass, adjust lines 53–60 to make the collisions more realistic.
+*main3.py* implements the worst, most-naive version of collision physics using the built-in sprite collision detection. Assuming all the animal heads have the same mass, lines 51-60 exchange the velocities in a very naive simple way. This is explained better in comments on
+lines 52-55.
 

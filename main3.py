@@ -49,15 +49,19 @@ class Window(arcade.Window):
 
 
             collisions = a.collides_with_list(self.animal_list)
+            #this works, as long as the random spawns aren't stacked. 
+            #in theory, we are just swapping the velocities, as they have the same mass when colliding, so no more complicated math is needed.
+            #as our current list of collisions, technically has two instances for every collision (one for each object involved.)
+            #we only apply the exchange of velocities in one of them, by doing it only for which ever center position is larger in the x and y values.
             for c in collisions:
                 if a.center_x > c.center_x:
-                    a.dx = abs(a.dx) * -1
-                if a.center_x < c.center_x:
-                    a.dx = abs(a.dx)
+                    oldadx = a.dx
+                    a.dx = c.dx
+                    c.dx = oldadx
                 if a.center_y > c.center_y:
-                    a.dy = abs(a.dy)
-                if a.center_y < c.center_y:
-                    a.dy = abs(a.dy) * -1
+                    oldady = a.dy
+                    a.dy = c.dy
+                    c.dy = oldady
 
 
 
